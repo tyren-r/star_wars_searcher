@@ -6,73 +6,44 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import '../styles/search-results-styles.css';
 
-function SearchResultsTable() {
+function SearchResultsTable(props) {
   return (
-    <TableContainer sx={{ minWidth: 350, maxWidth:500}} component={Paper}>
+    <div className="table-container">
+    <TableContainer component={Paper}>
       <Table  aria-label="simple table">
+        <TableHead>
+          <TableRow key={1}>
+            <TableCell component="th" scope="row">Name</TableCell>
+            <TableCell component="th" scope="row">Height</TableCell>
+            <TableCell component="th" scope="row">Mass</TableCell>
+            <TableCell component="th" scope="row">Hair Color</TableCell>
+            <TableCell component="th" scope="row">skin color</TableCell>
+            <TableCell component="th" scope="row">Birth Year</TableCell>
+            <TableCell component="th" scope="row">Films</TableCell>
+            <TableCell component="th" scope="row">Species</TableCell>
+          </TableRow>
+        </TableHead>
         <TableBody>
-
-            <TableRow
-              key={1}
+            {props.data.map((person,index) => (
+              <TableRow
+              key={index}
             >
-              <TableCell component="th" scope="row">Name</TableCell>
-              <TableCell align="right">Luke Skywalker</TableCell>
+              <TableCell >{person.name}</TableCell>
+              <TableCell >{person.height}</TableCell>
+              <TableCell >{person.mass}</TableCell>
+              <TableCell >{person.hair_color}</TableCell>
+              <TableCell >{person.hair_color}</TableCell>
+              <TableCell >{person.birth_year}</TableCell>
+              <TableCell >{ person.films }</TableCell>
+              <TableCell >{person.species}</TableCell>
             </TableRow>
-
-            <TableRow
-              key={2}
-            >
-              <TableCell component="th" scope="row">Height</TableCell>
-              <TableCell align="right">About 2.5 ewoks</TableCell>
-            </TableRow>
-
-            <TableRow
-              key={3}
-            >
-              <TableCell component="th" scope="row">Mass</TableCell>
-              <TableCell align="right">Light enough to jump really high</TableCell>
-            </TableRow>
-
-            <TableRow
-              key={4}
-            >
-              <TableCell component="th" scope="row">Hair Color</TableCell>
-              <TableCell align="right">youngling blonde</TableCell>
-            </TableRow>
-
-            <TableRow
-              key={5}
-            >
-              <TableCell component="th" scope="row">skin color</TableCell>
-              <TableCell align="right">whiter than Hoth</TableCell>
-            </TableRow>
-
-            <TableRow
-              key={6}
-            >
-              <TableCell component="th" scope="row">Birth Year</TableCell>
-              <TableCell align="right">A long, long time ago</TableCell>
-            </TableRow>
-
-            <TableRow
-              key={7}
-            >
-              <TableCell component="th" scope="row">Films</TableCell>
-              <TableCell align="right">Film 1, Film 2, Film3, Film 4</TableCell>
-            </TableRow>
-
-            <TableRow
-              key={8}
-            >
-              <TableCell component="th" scope="row">Species</TableCell>
-              <TableCell align="right">Human</TableCell>
-            </TableRow>
-
-
+            ))}
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 }
 
