@@ -10,18 +10,27 @@ function SearchContainerLogic() {
         .then( async (response) => {
           
         for(const person of response.data['results']){
-          let names = [];
-          for(const link of person['films']) {
-            try {
-               await axios.get(`${link}`)
-              .then((response) => {
-                names.push(response.data['title'])
-              });
-            } catch (error) {
-              alert(error);
-            }
-            }
-            person['films'] = names;
+          await axios.all(person['films'].map((link) => axios.get(link))).then(
+            (data) => {
+              let names = [];
+              for(const film of data){
+                names.push(film['data']['title']);
+              }
+              person['films'] = names;
+            },
+          );
+          
+          // for(const link of person['films']) {
+          //   try {
+          //      await axios.get(`${link}`)
+          //     .then((response) => {
+          //       names.push(response.data['title'])
+          //     });
+          //   } catch (error) {
+          //     alert(error);
+          //   }
+          //   }
+          //   person['films'] = names;
           };
           setSearchResults(response.data['results']);
         });
