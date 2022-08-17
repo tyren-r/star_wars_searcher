@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function ResultTable() {
+function SearchResultsTable() {
   return (
     <TableContainer sx={{ minWidth: 350, maxWidth:500}} component={Paper}>
       <Table  aria-label="simple table">
@@ -76,4 +76,4 @@ function ResultTable() {
   );
 }
 
-export default ResultTable;
+export default SearchResultsTable;
