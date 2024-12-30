@@ -13,7 +13,7 @@ function SearchBar(props) {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" className="search-bar" label="May the force be with you..." onChange={(e) => setSearchTerm(e.target.value)} variant="outlined" />
+      <TextField  sx={{ input: { color: 'white'} , label:{color:'white'}, fieldset: { borderColor: "white" } }} id="outlined-basic" className="search-bar" label="May the force be with you..." onChange={(e) => setSearchTerm(e.target.value)} variant="outlined" />
       <Button className="search-button" variant="contained" onClick={() => props.searchMethod(searchTerm)}>Search</Button>
     </Box>
   );
