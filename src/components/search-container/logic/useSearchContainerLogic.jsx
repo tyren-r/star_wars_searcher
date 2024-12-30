@@ -6,7 +6,7 @@ function useSearchContainerLogic() {
 
     const getPersonInfo = async (searchParam) => {
       try {
-        await axios.get(`https://swapi.tech/api/people/${searchParam}`)
+        await axios.get(`https://swapi.tech/api/people/?name=${searchParam}`)
         .then( async (response) => {
           setSearchResults(response.data['result']);
         });

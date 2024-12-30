@@ -21,25 +21,18 @@ function SearchResultsTable(props) {
             <TableCell component="th" scope="row">Hair Color</TableCell>
             <TableCell component="th" scope="row">skin color</TableCell>
             <TableCell component="th" scope="row">Birth Year</TableCell>
-            <TableCell component="th" scope="row">Films</TableCell>
-            <TableCell component="th" scope="row">Species</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-            {props.data.map((person,index) => (
               <TableRow
-              key={index}
             >
-              <TableCell >{person.name}</TableCell>
-              <TableCell >{person.height}</TableCell>
-              <TableCell >{person.mass}</TableCell>
-              <TableCell >{person.hair_color}</TableCell>
-              <TableCell >{person.hair_color}</TableCell>
-              <TableCell >{person.birth_year}</TableCell>
-              <TableCell >{ person.films }</TableCell>
-              <TableCell >{person.species}</TableCell>
+              <TableCell >{props.data[0].properties.name}</TableCell>
+              <TableCell >{props.data[0].properties.height}</TableCell>
+              <TableCell >{props.data[0].properties.mass}</TableCell>
+              <TableCell >{props.data[0].properties.hair_color}</TableCell>
+              <TableCell >{props.data[0].properties.hair_color}</TableCell>
+              <TableCell >{props.data[0].properties.birth_year}</TableCell>
             </TableRow>
-            ))}
         </TableBody>
       </Table>
     </TableContainer>
