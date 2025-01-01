@@ -10,7 +10,7 @@ function SearchContainer() {
   const resultsTable = useMemo(()=><SearchResultsTable subNameGetter={getSubNames} data={searchResults} />,[getSubNames,searchResults])
   return (
     <div className="container">
-      <h1 id='title'>A long time ago - in a galaxy far, far away...</h1>
+      <h1 id='title'>Star Wars Searcher</h1>
       <SearchBar searchMethod={getPersonInfo} />
      { searchResults ? (resultsTable) : (null) }
     </div>
