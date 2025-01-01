@@ -9,29 +9,24 @@ import Paper from '@mui/material/Paper';
 import '../styles/search-results-styles.css';
 
 function SearchResultsTable(props) {
+  const tableHeaderValues = ["Name", "Height", "Mass", "Hair Color", "Skin Color", "Birth Year"]
   return (
     <div className="table-container">
     <TableContainer component={Paper}>
-      <Table  aria-label="simple table">
+      <Table sx={{backgroundColor:'grey'}}  aria-label="simple table">
         <TableHead>
           <TableRow key={1}>
-            <TableCell component="th" scope="row">Name</TableCell>
-            <TableCell component="th" scope="row">Height</TableCell>
-            <TableCell component="th" scope="row">Mass</TableCell>
-            <TableCell component="th" scope="row">Hair Color</TableCell>
-            <TableCell component="th" scope="row">skin color</TableCell>
-            <TableCell component="th" scope="row">Birth Year</TableCell>
+            {tableHeaderValues.map((headerValue)=>(
+              <TableCell sx={{color:'white'}} component="th" scope="row">{headerValue}</TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
               <TableRow
             >
-              <TableCell >{props.data[0].properties.name}</TableCell>
-              <TableCell >{props.data[0].properties.height}</TableCell>
-              <TableCell >{props.data[0].properties.mass}</TableCell>
-              <TableCell >{props.data[0].properties.hair_color}</TableCell>
-              <TableCell >{props.data[0].properties.hair_color}</TableCell>
-              <TableCell >{props.data[0].properties.birth_year}</TableCell>
+              {Object.values(props.data[0].properties).map((result)=> (
+                <TableCell sx={{color:'white'}}>{result}</TableCell>
+              ))}
             </TableRow>
         </TableBody>
       </Table>
