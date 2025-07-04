@@ -6,12 +6,12 @@ import SearchContainerLogic from '../logic/useSearchContainerLogic';
 import '../styles/search-container-styles.css';
 
 function SearchContainer() {
-  const {searchResults, getPersonInfo, getSubNames} = SearchContainerLogic();
-  const resultsTable = useMemo(()=><SearchResultsTable subNameGetter={getSubNames} data={searchResults} />,[getSubNames,searchResults])
+  const {searchResults, search_the_api, } = SearchContainerLogic();
+  const resultsTable = useMemo(()=><SearchResultsTable data={searchResults} />,[searchResults])
   return (
     <div className="container">
       <h1 id='title'>Star Wars Searcher</h1>
-      <SearchBar searchMethod={getPersonInfo} />
+      <SearchBar searchMethod={search_the_api} />
      { searchResults ? (resultsTable) : (null) }
     </div>
   );
